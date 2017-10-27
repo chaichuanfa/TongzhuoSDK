@@ -6,10 +6,10 @@ Tongzhuo open game sdk base on [X5 Core](http://x5.tencent.com/), To help develo
  
 -----------
 
-#Get Start
+##Get Start
 ----------
 
-##Add the dependencies   
+###Add the dependencies   
 If you are building with Gradle, simply add the following line to the dependencies section of your build.gradle file:     
 
 ```Groovy
@@ -25,12 +25,12 @@ allprojects {
 compile 'com.tongzhuo:tzopengame:0.1.0'
 ```
 
-##Initialize  
+###Initialize  
 ```java
 //Must init tzopengame in Application:onCreate()
 TZManager.onInit(this, false);
 ```
-##Usage
+###Usage
 1\. Use [PlayGameFragment](https://github.com/chaichuanfa/TongzhuoSDK/blob/master/tzopengame/src/main/java/com/tongzhuo/tzopengame/ui/PlayGameFragment.java) to quickly open the game.    
   
 ```Java
@@ -63,8 +63,10 @@ public void getResult(String value) {
 	    mResultCallback.onResult(value);
     }
 }
-```
-#ProGuard
+```  
+
+##ProGuard  
+
 Depending on your ProGuard (DexGuard) config and usage, you may need to include [proguard-tencent-x5.cfg](https://github.com/chaichuanfa/TongzhuoSDK/blob/master/app/proguard-tencent-x5.cfg) in your build.gradle   
 
 ```Groovy
@@ -76,12 +78,15 @@ include the following lines in your proguard.cfg
 ```
 -keep class com.tongzhuo.tzopengame.** { *; }
 -dontwarn com.tongzhuo.tzopengame.**
-```
-#Thanks
+```  
+
+##Thanks  
+
 * [Tongzhuo](http://www.tongzhuogame.com/) 
 * [X5 Core](http://x5.tencent.com/) 
 
-#Author 
+##Author  
+
 chaichuanfa@tongzhuogame.com
 
 
