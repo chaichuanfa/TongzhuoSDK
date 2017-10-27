@@ -63,9 +63,8 @@ public void getResult(String value) {
 	    mResultCallback.onResult(value);
     }
 }
-```  
-
-## ProGuard
+```
+## ProGuard    
 
 Depending on your ProGuard (DexGuard) config and usage, you may need to include [proguard-tencent-x5.cfg](https://github.com/chaichuanfa/TongzhuoSDK/blob/master/app/proguard-tencent-x5.cfg) in your build.gradle   
 
@@ -75,15 +74,14 @@ proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pr
 ```   
 include the following lines in your proguard.cfg    
 
-```
+```Java
 -keep class com.tongzhuo.tzopengame.** { *; }
 -dontwarn com.tongzhuo.tzopengame.**
-```  
-
-## Thanks
+```
+## Thanks    
 
 * [Tongzhuo](http://www.tongzhuogame.com/) 
-* [X5 Core](http://x5.tencent.com/) 
+* [X5 Core](http://x5.tencent.com/)     
 
 ## Author
 
