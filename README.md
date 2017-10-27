@@ -1,15 +1,14 @@
-#TongzhuoSDK
----------
+# TongzhuoSDK
+
 [ ![Download](https://api.bintray.com/packages/felix0503/maven/tzopengame/images/download.svg) ](https://bintray.com/felix0503/maven/tzopengame/_latestVersion)
     
 Tongzhuo open game sdk base on [X5 Core](http://x5.tencent.com/), To help developers to quickly integrate Tongzhuo game.    
  
 -----------
 
-##Get Start
-----------
+## Get Start
 
-###Add the dependencies   
+### Add the dependencies   
 If you are building with Gradle, simply add the following line to the dependencies section of your build.gradle file:     
 
 ```Groovy
@@ -25,20 +24,21 @@ allprojects {
 compile 'com.tongzhuo:tzopengame:0.1.0'
 ```
 
-###Initialize  
+### Initialize  
 ```java
 //Must init tzopengame in Application:onCreate()
 TZManager.onInit(this, false);
 ```
-###Usage
-1\. Use [PlayGameFragment](https://github.com/chaichuanfa/TongzhuoSDK/blob/master/tzopengame/src/main/java/com/tongzhuo/tzopengame/ui/PlayGameFragment.java) to quickly open the game.    
+## Usage
+
+### Use [PlayGameFragment](https://github.com/chaichuanfa/TongzhuoSDK/blob/master/tzopengame/src/main/java/com/tongzhuo/tzopengame/ui/PlayGameFragment.java) to quickly open the game.    
   
 ```Java
 //Context must implements GameResultCallback to listen game result
 getSupportFragmentManager().beginTransaction()
                     .add(R.id.content_view, PlayGameFragment.newInstance(game_url), tag).commit();
 ```                  
-2\. Use [X5WebView](https://github.com/chaichuanfa/TongzhuoSDK/blob/master/tzopengame/src/main/java/com/tongzhuo/tzopengame/tencent_x5/X5WebView.java) to custom game window   
+### Use [X5WebView](https://github.com/chaichuanfa/TongzhuoSDK/blob/master/tzopengame/src/main/java/com/tongzhuo/tzopengame/tencent_x5/X5WebView.java) to custom game window   
   
 ```Java                    
 <com.tongzhuo.tzopengame.tencent_x5.X5WebView
@@ -65,7 +65,7 @@ public void getResult(String value) {
 }
 ```  
 
-##ProGuard  
+## ProGuard
 
 Depending on your ProGuard (DexGuard) config and usage, you may need to include [proguard-tencent-x5.cfg](https://github.com/chaichuanfa/TongzhuoSDK/blob/master/app/proguard-tencent-x5.cfg) in your build.gradle   
 
@@ -80,12 +80,12 @@ include the following lines in your proguard.cfg
 -dontwarn com.tongzhuo.tzopengame.**
 ```  
 
-##Thanks  
+## Thanks
 
 * [Tongzhuo](http://www.tongzhuogame.com/) 
 * [X5 Core](http://x5.tencent.com/) 
 
-##Author  
+## Author
 
 chaichuanfa@tongzhuogame.com
 
