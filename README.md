@@ -23,7 +23,13 @@ allprojects {
 
 compile 'com.tongzhuo:tzopengame:0.1.0'
 ```
+Because the x5 only support 32-bit architecture, must add `abifilter` and the `JniLibs/armeabi-v7a/` directory has at least one libraries   
 
+```Groovy
+ndk {
+	abiFilters 'armeabi-v7a'
+}
+```
 ### Initialize  
 ```java
 //Must init tzopengame in Application:onCreate()

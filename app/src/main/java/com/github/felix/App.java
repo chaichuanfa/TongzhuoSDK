@@ -1,7 +1,6 @@
 package com.github.felix;
 
-import com.tongzhuo.tzopengame.*;
-import com.tongzhuo.tzopengame.BuildConfig;
+import com.tongzhuo.tzopengame.TZManager;
 
 import android.app.Application;
 
