@@ -46,15 +46,17 @@ getSupportFragmentManager().beginTransaction()
 ```                  
 ### Use [X5WebView](https://github.com/chaichuanfa/TongzhuoSDK/blob/master/tzopengame/src/main/java/com/tongzhuo/tzopengame/tencent_x5/X5WebView.java) to custom game window   
   
-```Java                    
-<com.tongzhuo.tzopengame.tencent_x5.X5WebView
-            android:id="@+id/mGameView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-</com.tongzhuo.tzopengame.tencent_x5.X5WebView>
+```Java   
+private X5WebView mGameView;
+                 
+private void createGameView() {
+        mGameView = new X5WebView(getContext().getApplicationContext());
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
+        mGameViewContainer.addView(mGameView, params);
+        mGameView.onResume();
+    }
 
-X5WebView mGameView = (X5WebView) findViewById(R.id.mGameView);
 //add js call native object
 mGameView.addJavascriptInterface(this, "TzOpen");
 mGameView.loadUrl(mGameUrl); 
