@@ -1,17 +1,16 @@
 package com.github.felix;
 
+import com.github.felix.model.GameInfo;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText mEtUrl;
-
-    private Button mBtStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         mEtUrl = (EditText) findViewById(R.id.mEtUrl);
-        mBtStart = (Button) findViewById(R.id.mBtStart);
-        mBtStart.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.mBtStart).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openGame();
+            }
+        });
+        findViewById(R.id.mBtStartCustom).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openGameCustom();
             }
         });
         String url = getPreferences(MODE_PRIVATE).getString("open_url", "");
@@ -39,7 +43,15 @@ public class MainActivity extends AppCompatActivity {
         String url = mEtUrl.getText().toString().trim();
         if (!TextUtils.isEmpty(url)) {
             getPreferences(MODE_PRIVATE).edit().putString("open_url", url).commit();
-            startActivity(PlayGameActivity.newIntent(this, url));
+            startActivity(PlayGameActivity.newIntent(this, new GameInfo(url, true)));
+        }
+    }
+
+    private void openGameCustom() {
+        String url = mEtUrl.getText().toString().trim();
+        if (!TextUtils.isEmpty(url)) {
+            getPreferences(MODE_PRIVATE).edit().putString("open_url", url).commit();
+            startActivity(CustomGameViewActivity.newIntent(this, new GameInfo(url, true)));
         }
     }
 }

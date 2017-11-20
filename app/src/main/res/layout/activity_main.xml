@@ -29,4 +29,14 @@
             android:textColor="#FFFFFF"
             />
 
+    <Button
+            android:id="@+id/mBtStartCustom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义游戏窗口-开始游戏"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorAccent"
+            android:textColor="#FFFFFF"
+            />
 </LinearLayout>
