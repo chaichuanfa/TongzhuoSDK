@@ -21,7 +21,7 @@ allprojects {
 }
 
 
-compile 'com.tongzhuo:tzopengame:0.1.0'
+compile 'com.tongzhuo:tzopengame:0.2.0'
 ```
 Because the x5 only support 32-bit architecture, must add `abifilter` and the `JniLibs/armeabi-v7a/` directory has at least one libraries   
 

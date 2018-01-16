@@ -15,6 +15,7 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 public class CustomGameViewActivity extends AppCompatActivity {
 
@@ -79,6 +80,7 @@ public class CustomGameViewActivity extends AppCompatActivity {
                 ViewGroup.LayoutParams.MATCH_PARENT);
         mRootView.addView(mGameView, params);
         mGameView.addJavascriptInterface(this, "TzOpen");
+        mGameView.addJavascriptInterface(this, "nativeApp");
         if (mGameInfo != null && !TextUtils.isEmpty(mGameInfo.getGameUrl())) {
             TZLog.d("load game url : " + mGameInfo.getGameUrl());
             mGameView.loadUrl(mGameInfo.getGameUrl());
@@ -98,13 +100,47 @@ public class CustomGameViewActivity extends AppCompatActivity {
         });
     }
 
+//    public void closeBGM(View view) {
+//        mGameView.loadUrl("javascript:closePKBGM()");
+//        Toast.makeText(this, "close bgm click", Toast.LENGTH_SHORT).show();
+//    }
+//
+//    public void openBGM(View view) {
+//        mGameView.loadUrl("javascript:openPKBGM()");
+//        Toast.makeText(this, "open bgm click", Toast.LENGTH_SHORT).show();
+//    }
+
     /**
      * game result callback
-     * @param value
      */
     @JavascriptInterface
     public void getResult(String value) {
-        TZLog.d("game result : "+value);
-
+        TZLog.d("getResult : " + value);
+        Toast.makeText(this, "getResult: " + value, Toast.LENGTH_LONG).show();
     }
+
+    @JavascriptInterface
+    public void onPKLoading(String value) {
+        TZLog.d("onPKLoading : " + value);
+        Toast.makeText(this, "onPKLoading: " + value, Toast.LENGTH_LONG).show();
+    }
+
+    @JavascriptInterface
+    public void onPKFinishLoading(String value) {
+        TZLog.d("onPKFinishLoading : " + value);
+        Toast.makeText(this, "onPKFinishLoading: " + value, Toast.LENGTH_LONG).show();
+    }
+
+    @JavascriptInterface
+    public void onPKLoadFail(String value) {
+        TZLog.d("onPKLoadFail : " + value);
+        Toast.makeText(this, "onPKLoadFail: " + value, Toast.LENGTH_LONG).show();
+    }
+
+    @JavascriptInterface
+    public void onPKStart(String value) {
+        TZLog.d("onPKStart : " + value);
+        Toast.makeText(this, "onPKStart: " + value, Toast.LENGTH_LONG).show();
+    }
+
 }
